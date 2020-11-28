@@ -38,6 +38,6 @@ jobs:
           repository: jonasdewinter/besturingsystemen
           tag_with_ref: false
       - name: build the docker image
-        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USER }}/besturingssystemen_labo6:latest 
+        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USER }}/besturingsystemen:latest 
       - name: Docker Push
         run: docker push ${{secrets.DOCKER_USER}}/besturingssystemen_labo6:latest
