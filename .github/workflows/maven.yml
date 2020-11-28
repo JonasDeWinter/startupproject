@@ -11,8 +11,8 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    name: set up maven
+    runs-on: ubuntu-18.04
 
     steps:
     - uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    name: Publish Docker image
+
 
   push_to_registry:
     name: Push Docker image to Docker Hub
