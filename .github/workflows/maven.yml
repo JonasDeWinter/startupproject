@@ -37,6 +37,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: jonasdewinter/besturingsystemen
           tag_with_ref: false
-          tag: latest
+          tag: jonasdewinter/besturingsystemen
       - name: Docker Push
         run: docker push ${{secrets.DOCKER_USERNAME}}/besturingsystemen
