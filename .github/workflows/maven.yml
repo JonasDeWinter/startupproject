@@ -36,3 +36,18 @@ jobs:
         run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/besturingsystemen:latest
       - name: Docker Push
         run: docker push ${{secrets.DOCKER_USERNAME}}/besturingsystemen
+  create_release:
+    name: create release
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Release
+      id: create_release
+      uses: zendesk/action-create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_with_ref: true
+        release_with_ref: true
+        draft: false
+        prerelease: false
+    
